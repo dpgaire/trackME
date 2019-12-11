@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Create Account</string>
+    <string name="app_name">Login</string>
+    <string-array name="SelectUser">
+        <item>Select User Type</item>
+        <item>Trustable User</item>
+        <item>Requestable </item>
+    </string-array>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
