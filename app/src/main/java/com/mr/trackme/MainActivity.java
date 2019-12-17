@@ -19,6 +19,7 @@ EditText password;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         etRegister=findViewById(R.id.txtRegister);
         password=findViewById(R.id.etpassword);
         etRegister.setOnClickListener(new View.OnClickListener() {

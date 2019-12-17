@@ -4,33 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#D4A7F7"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="350sp"
-        android:src="@drawable/getstarted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/tracking"
+
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="100dp"
         android:layout_gravity="center_vertical"
         />
 
 
-    <Button
-        android:id="@+id/gatestarted"
-        android:text="Get Started"
-        style="@style/customButton"
-
-        />
-    <Spinner
-        android:id="@+id/spUserType"
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-
-        android:textColor="#ffffff"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_height="40dp"/>
+   <EditText
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="trackMe V:1.0"
+       android:textSize="20dp"
+       android:layout_marginTop="10dp"
+       android:layout_marginLeft="130dp"/>
 
 
 </LinearLayout>
