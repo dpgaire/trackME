@@ -14,11 +14,10 @@ import android.widget.Spinner;
 
 import java.lang.reflect.Array;
 
-public class GetStarted extends AppCompatActivity implements  AdapterView.OnItemSelectedListener {
+public class GetStarted extends AppCompatActivity  {
 
-    private Button btnGateStarted;
-    private Spinner SpUserType;
-    private String userType[]={"Select User Type","Trustable","Requestable"};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,28 +34,6 @@ public class GetStarted extends AppCompatActivity implements  AdapterView.OnItem
         },2000);
 
 
-
-//        btnGateStarted=findViewById(R.id.gatestarted);
-//        Spinner spinner =(Spinner) findViewById(R.id.spUserType);
-//        spinner.setOnItemSelectedListener(this);
-//
-//        ArrayAdapter aa=new ArrayAdapter(this,android.R.layout.activity_list_item,userType);
-//        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        SpUserType.setAdapter(aa);
-
-
-
     }
 
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
     }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-}
