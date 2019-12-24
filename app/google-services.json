@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "585146441558",
+    "firebase_url": "https://trackme-de6ac.firebaseio.com",
+    "project_id": "trackme-de6ac",
+    "storage_bucket": "trackme-de6ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585146441558:android:30a6d55027b6b52e05c0f7",
+        "android_client_info": {
+          "package_name": "com.dpgv1.trackme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585146441558-nlkabjtel4qlth634uibsa8557f5v81i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC2EKEAG05ijxGfWUhcZ2GNGs0FziFXDY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585146441558-nlkabjtel4qlth634uibsa8557f5v81i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

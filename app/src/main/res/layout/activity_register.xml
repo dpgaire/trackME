@@ -17,36 +17,38 @@
         android:layout_gravity="center_vertical"
         />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/etusername"
-        android:hint="Email or Phone"
-        style="@style/customSize"
-        android:inputType="text"
-        />
+        <EditText
+            android:id="@+id/etemail"
+            android:hint="Email or Phone"
+            style="@style/customSize"
+            android:inputType="text"
+            />
 
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        android:id="@+id/etpassword"
-        android:hint="Enter Password"
-        style="@style/customSize"
-        android:inputType="textPassword"
-        />
-    <EditText
-
-        android:id="@+id/etconpassword"
-        android:hint="Conform Password"
-        style="@style/customSize"
-        android:inputType="textPassword"
-        />
+        <EditText
+            android:id="@+id/etpassword"
+            android:hint="Enter Password"
+            style="@style/customSize"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnlogin"
-        android:text="Conform"
+        android:id="@+id/btnRegister"
+        android:text="Register"
         style="@style/customButton"
 
         />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
