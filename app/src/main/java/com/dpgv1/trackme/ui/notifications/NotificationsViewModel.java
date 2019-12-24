@@ -1,4 +1,4 @@
-package com.mr.trackme.ui.notifications;
+package com.dpgv1.trackme.ui.notifications;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

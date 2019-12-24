@@ -1,12 +1,9 @@
-package com.mr.trackme;
+package com.dpgv1.trackme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.provider.Telephony;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;

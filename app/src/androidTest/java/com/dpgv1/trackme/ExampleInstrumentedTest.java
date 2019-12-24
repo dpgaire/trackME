@@ -1,4 +1,4 @@
-package com.mr.trackme;
+package com.dpgv1.trackme;
 
 import android.content.Context;
 
