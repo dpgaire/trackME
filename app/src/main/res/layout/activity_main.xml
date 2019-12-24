@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/etusername"
+            android:id="@+id/etEmailLogin"
             android:hint=" Email or Phone"
             style="@style/customSize"
             android:inputType="text"
@@ -36,7 +36,7 @@
 
     <EditText
 
-        android:id="@+id/etpassword"
+        android:id="@+id/etPasswordLogin"
         android:hint="Enter password"
         style="@style/customSize"
         android:imeOptions="actionUnspecified"
