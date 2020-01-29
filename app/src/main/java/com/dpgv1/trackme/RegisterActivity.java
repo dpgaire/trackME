@@ -6,28 +6,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
 
-  private  TextView email,password ,backToLogin;
-  private Button Register,GoogleSignUp;
-  private FirebaseAuth auth;
-    private Object AuthResult;
+  private  TextView backToLogin;
+  private EditText firstName,lastName,address,username,password;
+  private Button Register;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-      backToLogin=findViewById(R.id.etBacktoLogin);
+        binding();
+        validation();
+
       backToLogin.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
@@ -35,50 +33,51 @@ public class RegisterActivity extends AppCompatActivity {
               startActivity(intent);
           }
       });
+      Register.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              register();
+          }
+      });
+    }
+    public void binding(){
+        backToLogin=findViewById(R.id.etBacktoLogin);
+        firstName=findViewById(R.id.etfirstname);
+        lastName=findViewById(R.id.etlastname);
+        address=findViewById(R.id.etaddress);
+        Register=findViewById(R.id.btnRegister);
+        username=findViewById(R.id.etusernameReg);
+        password=findViewById(R.id.etPasswordReg);
 
-//        TextView tvlogin=findViewById(R.id.txtLogin);
-//        email=findViewById(R.id.etemail);
-//        password=findViewById(R.id.etpassword);
-//        Register=findViewById(R.id.btnRegister);
-//        //GoogleSignUp=findViewById(R.id.sign_in_button);
-//
-//
-//        tvlogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        Register.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            final String Email=email.getText().toString().trim();
-//            final String Password=password.getText().toString().trim();
-//            auth=FirebaseAuth.getInstance();
-//
-//            auth.createUserWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<com.google.firebase.auth.AuthResult>() {
-//                @Override
-//                public void onComplete(@NonNull Task<com.google.firebase.auth.AuthResult> task) {
-//                    if(task.isSuccessful()){
-//                        Toast.makeText(RegisterActivity.this, "Register SUcessfull", Toast.LENGTH_SHORT).show();
-//                        Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
-//                        startActivity(intent);
-//
-//
-//
-//                    }else if(!task.isSuccessful()){
-//                        Toast.makeText(RegisterActivity.this, "Register failed", Toast.LENGTH_SHORT).show();
-//
-//                    }
-//
-//                }
-//            });
-//
-//            }
-//
-//        });
+    }
+    public void validation(){
+        if (TextUtils.isEmpty(firstName.getText().toString())) {
+            firstName.setError("Please enter firstname");
+            firstName.requestFocus();
+
+        }
+        if (TextUtils.isEmpty(lastName.getText().toString())) {
+            lastName.setError("Please enter lastname");
+            lastName.requestFocus();
+
+        }
+        if (TextUtils.isEmpty(address.getText().toString())) {
+            address.setError("Please enter address");
+            address.requestFocus();
+
+        }
+        if (TextUtils.isEmpty(username.getText().toString())) {
+            username.setError("Please enter username");
+            username.requestFocus();
+
+        }
+        if (TextUtils.isEmpty(password.getText().toString())) {
+            password.setError("Please enter firstname");
+            password.requestFocus();
+
+        }
+    }
+    public void register(){
+
     }
 }

@@ -18,7 +18,10 @@ private Button Login;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        binding();
+        Username=findViewById(R.id.etusernamelogin);
+        password=findViewById(R.id.etPasswordLogin);
+        Login=findViewById(R.id.btnLogin);
+        etRegister=findViewById(R.id.ettRegister);
         validation();
         etRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,13 +38,13 @@ private Button Login;
             }
         });
     }
-    public void binding(){
-        Username=findViewById(R.id.etusernamelogin);
-        password=findViewById(R.id.etPasswordLogin);
-        Login=findViewById(R.id.btnLogin);
-        etRegister=findViewById(R.id.ettRegister);
-
-    }
+//    public void binding(){
+//        Username=findViewById(R.id.etusernamelogin);
+//        password=findViewById(R.id.etPasswordLogin);
+//        Login=findViewById(R.id.btnLogin);
+//        etRegister=findViewById(R.id.ettRegister);
+//
+//    }
 
     public void validation(){
 
