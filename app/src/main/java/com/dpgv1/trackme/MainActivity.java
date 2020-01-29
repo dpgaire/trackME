@@ -9,28 +9,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.dpgv1.trackme.ui.dashboard.DashboardFragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-
 public class MainActivity extends AppCompatActivity {
 private TextView etRegister;
-private EditText email,password;
+private EditText Username,password;
 private Button Login;
-private FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        auth=FirebaseAuth.getInstance();
-        email=findViewById(R.id.etEmailLogin);
-        etRegister=findViewById(R.id.txtRegister);
-        password=findViewById(R.id.etPasswordLogin);
-        Login=findViewById(R.id.btnlogin);
+        binding();
+        validation();
         etRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,29 +31,23 @@ private FirebaseAuth auth;
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Email=email.getText().toString().trim();
-                String Password=password.getText().toString().trim();
-
-                auth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(MainActivity.this,new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        if(task.isSuccessful()){
-                            Toast.makeText(MainActivity.this, "Login Sucessfull", Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(MainActivity.this, Dashboard.class);
-                            startActivity(intent);
-                            finish();
-
-                        }else {
-                            Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
-
-                        }
-
-                    }
-                });
-
+                login();
             }
         });
+    }
+    public void binding(){
+        Username=findViewById(R.id.etusernamelogin);
+        password=findViewById(R.id.etPasswordLogin);
+        Login=findViewById(R.id.btnLogin);
+        etRegister=findViewById(R.id.ettRegister);
 
     }
+
+    public void validation(){
+
+    }
+    public void login(){
+
+    }
+
 }

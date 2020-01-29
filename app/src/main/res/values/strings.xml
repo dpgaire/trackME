@@ -1,25 +1,19 @@
 <resources>
-    <string name="app_name">Login</string>
-    <string-array name="SelectUser">
-        <item>Select User Type</item>
-        <item>Trustable User</item>
-        <item>Requestable </item>
-    </string-array>
+    <string name="app_name">Chats</string>
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="title_home">Message</string>
     <string name="title_dashboard">Add friend</string>
     <string name="title_notifications">Notifications</string>
-
-
     <string name="btn_login">LOGIN</string>
 
-<!--    <string name="btn_link_to_login">already registered. login me!</string>-->
-<!--    <string name="btn_forgot_password">Forgot your password?</string>-->
-<!--    <string name="btn_reset_password">Reset Password</string>-->
-<!--    <string name="btn_back"><![CDATA[<< Back]]></string>-->
-<!--    <string name="btn_sign_out">Sign Out</string>-->
-<!--    <string name="lbl_forgot_password">Forgot password?</string>-->
-<!--    <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>-->
+
+    <!--    <string name="btn_link_to_login">already registered. login me!</string>-->
+    <!--    <string name="btn_forgot_password">Forgot your password?</string>-->
+    <!--    <string name="btn_reset_password">Reset Password</string>-->
+    <!--    <string name="btn_back"><![CDATA[<< Back]]></string>-->
+    <!--    <string name="btn_sign_out">Sign Out</string>-->
+    <!--    <string name="lbl_forgot_password">Forgot password?</string>-->
+    <!--    <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>-->
 
 
 </resources>
