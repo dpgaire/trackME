@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
 public class RegisterActivity extends AppCompatActivity {
 
   private  TextView backToLogin;
@@ -23,7 +24,14 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        binding();
+        backToLogin=findViewById(R.id.etBacktoLogin);
+        firstName=findViewById(R.id.etfirstname);
+        lastName=findViewById(R.id.etlastname);
+        address=findViewById(R.id.etaddress);
+        Register=findViewById(R.id.btnRegister);
+        username=findViewById(R.id.etusernameReg);
+        password=findViewById(R.id.etPasswordReg);
+
         validation();
 
       backToLogin.setOnClickListener(new View.OnClickListener() {
@@ -72,12 +80,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         }
         if (TextUtils.isEmpty(password.getText().toString())) {
-            password.setError("Please enter firstname");
+            password.setError("Please enter password");
             password.requestFocus();
 
         }
     }
     public void register(){
+//       UserAPI userAPI;
+//        userAPI = Url.getInstance().create(UserAPI.class);
 
     }
 }
