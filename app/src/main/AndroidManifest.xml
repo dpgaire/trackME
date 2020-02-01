@@ -3,27 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.dpgv1.trackme">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/fucking"
         android:label="trackME"
+        android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".AddFriend">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Chats"></activity>
-        <activity android:name=".Dashboard" />
-        <activity android:name=".GetStarted">
+        <activity
+            android:name=".UserProfile"
+            android:label="@string/title_dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SplashActivity">
 
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".Chats" />
+        <activity android:name=".Dashboard" />
+        <activity android:name=".GetStarted" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
     </application>
 

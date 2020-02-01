@@ -11,54 +11,66 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.dpgv1.trackme.ServerResponse.LoginSignUpResponse;
+import com.dpgv1.trackme.api.UserAPI;
+import com.dpgv1.trackme.model.User;
+import com.dpgv1.trackme.url.Url;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class RegisterActivity extends AppCompatActivity {
 
-  private  TextView backToLogin;
-  private EditText firstName,lastName,address,username,password;
-  private Button Register;
+    private TextView backToLogin;
+    private EditText firstName, lastName, address, username, password;
+    private Button Register;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        backToLogin=findViewById(R.id.etBacktoLogin);
-        firstName=findViewById(R.id.etfirstname);
-        lastName=findViewById(R.id.etlastname);
-        address=findViewById(R.id.etaddress);
-        Register=findViewById(R.id.btnRegister);
-        username=findViewById(R.id.etusernameReg);
-        password=findViewById(R.id.etPasswordReg);
+        backToLogin = findViewById(R.id.etBacktoLogin);
+        firstName = findViewById(R.id.etfirstname);
+        lastName = findViewById(R.id.etlastname);
+        address = findViewById(R.id.etaddress);
+        Register = findViewById(R.id.btnRegister);
+        username = findViewById(R.id.etusernameReg);
+        password = findViewById(R.id.etPasswordReg);
 
         validation();
 
-      backToLogin.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
-              startActivity(intent);
-          }
-      });
-      Register.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              register();
-          }
-      });
+        backToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        Register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                register();
+            }
+        });
     }
-    public void binding(){
-        backToLogin=findViewById(R.id.etBacktoLogin);
-        firstName=findViewById(R.id.etfirstname);
-        lastName=findViewById(R.id.etlastname);
-        address=findViewById(R.id.etaddress);
-        Register=findViewById(R.id.btnRegister);
-        username=findViewById(R.id.etusernameReg);
-        password=findViewById(R.id.etPasswordReg);
+
+    public void binding() {
+        backToLogin = findViewById(R.id.etBacktoLogin);
+        firstName = findViewById(R.id.etfirstname);
+        lastName = findViewById(R.id.etlastname);
+        address = findViewById(R.id.etaddress);
+        Register = findViewById(R.id.btnRegister);
+        username = findViewById(R.id.etusernameReg);
+        password = findViewById(R.id.etPasswordReg);
 
     }
-    public void validation(){
+
+    public void validation() {
         if (TextUtils.isEmpty(firstName.getText().toString())) {
             firstName.setError("Please enter firstname");
             firstName.requestFocus();
@@ -85,9 +97,43 @@ public class RegisterActivity extends AppCompatActivity {
 
         }
     }
+
+
     public void register(){
-//       UserAPI userAPI;
-//        userAPI = Url.getInstance().create(UserAPI.class);
+
+
+            String fname = firstName.getText().toString();
+            String lname = lastName.getText().toString();
+            String Address=address.getText().toString();
+            String userName = username.getText().toString();
+            String Password = password.getText().toString();
+
+            User users = new User(fname, lname,Address,userName, Password);
+
+            UserAPI usersAPI = Url.getInstance().create(UserAPI.class);
+            Call<LoginSignUpResponse> signUpCall = usersAPI.registerUser(users);
+
+            signUpCall.enqueue(new Callback<LoginSignUpResponse>() {
+                @Override
+                public void onResponse(Call<LoginSignUpResponse> call, Response<LoginSignUpResponse> response) {
+                    if (!response.isSuccessful()) {
+                        Toast.makeText(RegisterActivity.this, "Code " + response.code(), Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailure(Call<LoginSignUpResponse> call, Throwable t) {
+                    Toast.makeText(RegisterActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
 
     }
-}
+
+

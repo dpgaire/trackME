@@ -10,10 +10,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.dpgv1.trackme.BLL.LoginBLL;
+import com.dpgv1.trackme.StrickMode.StrickMode;
+
+
 public class MainActivity extends AppCompatActivity {
 private TextView etRegister;
 private EditText Username,password;
-private Button Login;
+private Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +35,7 @@ private Button Login;
             }
         });
 
-        Login.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 login();
@@ -39,7 +45,7 @@ private Button Login;
     public void binding(){
         Username=findViewById(R.id.etusernamelogin);
         password=findViewById(R.id.etPasswordLogin);
-        Login=findViewById(R.id.btnLogin);
+        btnLogin=findViewById(R.id.btnLogin);
         etRegister=findViewById(R.id.ettRegister);
 
     }
@@ -57,6 +63,22 @@ private Button Login;
         }
     }
     public void login(){
+        String userName = Username.getText().toString();
+        String Password = password.getText().toString();
+
+        LoginBLL loginBLL = new LoginBLL();
+
+        StrickMode.StrictMode();
+        if (loginBLL.checkUser(userName, Password)) {
+            Intent intent=new Intent(MainActivity.this,Dashboard.class);
+            startActivity(intent);
+            finish();
+
+        } else {
+            Toast.makeText(this, "Either username or password is incorrect", Toast.LENGTH_LONG).show();
+            Username.requestFocus();
+        }
+
 
     }
 

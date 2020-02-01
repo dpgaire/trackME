@@ -6,17 +6,6 @@ public class User {
     private String lastName;
     private String address;
     private String username;
-    private String password;
-    private String image;
-
-    public User(String firstName, String lastName, String phoneNumber, String username, String password,String image) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = phoneNumber;
-        this.username = username;
-        this.password = password;
-        this.image = image;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -34,12 +23,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getPhoneNumber() {
+    public String getAddress() {
         return address;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.address = phoneNumber;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getUsername() {
@@ -58,11 +47,15 @@ public class User {
         this.password = password;
     }
 
-    public String getImage() {
-        return image;
+    public User(String firstName, String lastName, String address, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.username = username;
+        this.password = password;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
+    private String password;
+
+
 }
