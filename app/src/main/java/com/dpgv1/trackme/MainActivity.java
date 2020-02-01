@@ -70,7 +70,7 @@ private Button btnLogin;
 
         StrickMode.StrictMode();
         if (loginBLL.checkUser(userName, Password)) {
-            Intent intent=new Intent(MainActivity.this,Dashboard.class);
+            Intent intent=new Intent(MainActivity.this,DashboardActivity.class);
             startActivity(intent);
             finish();
 

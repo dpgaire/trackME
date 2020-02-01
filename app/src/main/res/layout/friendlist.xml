@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginRight="250dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/invite"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invite friends"
+            android:layout_marginTop="50dp"
+            android:textSize="27dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="200dp"/>
+
+
+    </RelativeLayout>
+
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="300dp">-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="20dp"
+        tools:ignore="MissingConstraints">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/huimage"
+            android:layout_width="140dp"
+            android:layout_height="104dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@mipmap/ic_launcher_round"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/etFnaddFriend"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="FirstName"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/etLnaddFriend"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="250dp"
+            android:text="Lastname"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/etPnaddFriend"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="150dp"
+            android:text="Phone Number"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            tools:ignore="MissingConstraints" />
+
+    </RelativeLayout>
+
+    <!--    </androidx.recyclerview.widget.RecyclerView>-->
+
+
+
+
+    <!--        />-->
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:id="@+id/constrhaintLayout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="120dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        tools:ignore="MissingConstraints">-->
+
+    <!--        <de.hdodenhof.circleimageview.CircleImageView-->
+    <!--            android:id="@+id/hukkkimage"-->
+    <!--            android:layout_width="140dp"-->
+    <!--            android:layout_height="104dp"-->
+    <!--            android:layout_marginStart="16dp"-->
+    <!--            android:layout_marginLeft="16dp"-->
+    <!--            android:layout_marginTop="16dp"-->
+    <!--            android:src="@mipmap/ic_launcher_round"-->
+    <!--            tools:ignore="MissingConstraints" />-->
+
+
+    <!--        <TextView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            android:layout_marginLeft="150dp"-->
+    <!--            android:layout_marginTop="20dp"-->
+    <!--            android:text="Username"-->
+    <!--            android:textAlignment="center"-->
+    <!--            android:textSize="25dp"-->
+    <!--            tools:ignore="MissingConstraints" />-->
+
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="120dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        tools:ignore="MissingConstraints">-->
+
+    <!--        <de.hdodenhof.circleimageview.CircleImageView-->
+    <!--            android:id="@+id/hukkimage"-->
+    <!--            android:layout_width="140dp"-->
+    <!--            android:layout_height="104dp"-->
+    <!--            android:layout_marginStart="16dp"-->
+    <!--            android:layout_marginLeft="16dp"-->
+    <!--            android:layout_marginTop="16dp"-->
+    <!--            android:src="@mipmap/ic_launcher_round"-->
+    <!--            tools:ignore="MissingConstraints" />-->
+
+
+
+    <!--        <TextView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            android:layout_marginTop="20dp"-->
+    <!--            android:layout_marginLeft="150dp"-->
+    <!--            android:text="Username"-->
+    <!--            android:textAlignment="center"-->
+    <!--            android:textSize="25dp"-->
+    <!--            tools:ignore="MissingConstraints" />-->
+
+
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/addfriendButonimage"
+        android:layout_width="140dp"
+        android:layout_height="104dp"
+        android:layout_gravity="end"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/addfriendicon"
+        tools:ignore="MissingConstraints" />
+
+
+
+</LinearLayout>

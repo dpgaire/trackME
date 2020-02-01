@@ -1,9 +1,28 @@
 package com.dpgv1.trackme.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AddFriend {
 
+    static List<AddFriend> addFriendList=new ArrayList<>();
     private String firstName;
-    private String LastName;
+    private String lastName;
+    private String phoneNumber;
+
+    public AddFriend(String firstName, String lastName, String phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public static List<AddFriend> getAddFriendList() {
+        return addFriendList;
+    }
+
+    public static void setAddFriendList(List<AddFriend> addFriendList) {
+        AddFriend.addFriendList = addFriendList;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -14,27 +33,18 @@ public class AddFriend {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getPhoneNumber() {
-        return PhoneNumber;
+        return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
+        this.phoneNumber = phoneNumber;
     }
-
-    public AddFriend(String firstName, String lastName, String phoneNumber) {
-        this.firstName = firstName;
-        LastName = lastName;
-        PhoneNumber = phoneNumber;
-    }
-
-    private String PhoneNumber;
-
 }
