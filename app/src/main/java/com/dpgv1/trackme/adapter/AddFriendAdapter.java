@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dpgv1.trackme.R;
 import com.dpgv1.trackme.model.AddFriend;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddFriendViewHolder> {
@@ -32,10 +34,14 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
 
     @Override
     public void onBindViewHolder(@NonNull AddFriendViewHolder holder, int position) {
-        AddFriend addFriend=addFriendListList.get(position);
-        holder.Fname.setText(addFriend.getFirstName());
-        holder.Lname.setText(addFriend.getLastName());
-        holder.pNumber.setText(addFriend.getPhoneNumber());
+        AddFriend aFriend=addFriendListList.get(position);
+
+//        holder.Fname.setText(aFriend.getFirstName());
+//        holder.Lname.setText(aFriend.getLastName());
+//        holder.pNumber.setText(aFriend.getPhoneNumber());
+        holder.Fname.setText(aFriend.getFirstName());
+        holder.Lname.setText(aFriend.getLastName());
+        holder.pNumber.setText(aFriend.getPhoneNumber());
     }
 
     @Override
