@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.dpgv1.trackme.BLL.LoginBLL;
 import com.dpgv1.trackme.StrickMode.StrickMode;
+import com.dpgv1.trackme.url.Example;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -70,7 +71,7 @@ private Button btnLogin;
 
         StrickMode.StrictMode();
         if (loginBLL.checkUser(userName, Password)) {
-            Intent intent=new Intent(MainActivity.this,DashboardActivity.class);
+            Intent intent=new Intent(MainActivity.this, Example.class);
             startActivity(intent);
             finish();
 

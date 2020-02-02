@@ -35,10 +35,6 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
     @Override
     public void onBindViewHolder(@NonNull AddFriendViewHolder holder, int position) {
         AddFriend aFriend=addFriendListList.get(position);
-
-//        holder.Fname.setText(aFriend.getFirstName());
-//        holder.Lname.setText(aFriend.getLastName());
-//        holder.pNumber.setText(aFriend.getPhoneNumber());
         holder.Fname.setText(aFriend.getFirstName());
         holder.Lname.setText(aFriend.getLastName());
         holder.pNumber.setText(aFriend.getPhoneNumber());
@@ -47,6 +43,7 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
     @Override
     public int getItemCount() {
         return addFriendListList.size();
+
     }
 
     public class AddFriendViewHolder extends RecyclerView.ViewHolder {
@@ -55,9 +52,9 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
 
         public AddFriendViewHolder(@NonNull View itemView) {
             super(itemView);
-            Fname=itemView.findViewById(R.id.etFnaddFriend);
-            Lname=itemView.findViewById(R.id.etLnaddFriend);
-            pNumber=itemView.findViewById(R.id.etPnaddFriend);
+            Fname=itemView.findViewById(R.id.etFnameaddFriend);
+            Lname=itemView.findViewById(R.id.etLastnaddFriend);
+            pNumber=itemView.findViewById(R.id.etPhonenaddFriend);
         }
 
     }
