@@ -24,6 +24,7 @@
             android:layout_marginTop="50dp"
             android:textSize="27dp"
             android:textStyle="bold"
+            android:id="@+id/invitefrn"
             android:layout_marginLeft="200dp"/>
 
 
@@ -53,27 +54,27 @@
             android:layout_marginLeft="10dp"
             android:text="FirstName"
             android:textAlignment="center"
-            android:textSize="25dp"
+            android:textSize="20dp"
             tools:ignore="MissingConstraints" />
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/etLastnaddFriend"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="250dp"
+            android:layout_marginLeft="150dp"
             android:text="Lastname"
             android:textAlignment="center"
-            android:textSize="25dp"
+            android:textSize="20dp"
             tools:ignore="MissingConstraints" />
         <TextView
             android:id="@+id/etPhonenaddFriend"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="150dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="80dp"
             android:text="Phone Number"
             android:textAlignment="center"
-            android:textSize="25dp"
+            android:textSize="20dp"
             tools:ignore="MissingConstraints" />
 
     </RelativeLayout>

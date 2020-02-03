@@ -2,6 +2,7 @@ package com.dpgv1.trackme.api;
 
 import com.dpgv1.trackme.ServerResponse.LoginSignUpResponse;
 import com.dpgv1.trackme.model.User;
+import com.dpgv1.trackme.model.UserLogin;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -19,7 +20,7 @@ public interface UserAPI {
 
 
     @POST("user/login")
-    Call<LoginSignUpResponse> loginUser(@Field("username") String username, @Field("password") String password);
+    Call<LoginSignUpResponse> loginUser(@Body UserLogin userLogin);
 
 ////    @Multipart
 ////    @POST("upload")

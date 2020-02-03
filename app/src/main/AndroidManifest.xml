@@ -26,19 +26,26 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DashboardActivity"
-            android:label="@string/title_activity_dashboard" />
+            android:label="@string/title_activity_dashboard">
+
+
+
+
+        </activity>
         <activity android:name=".AddFriendActivity" /> <!-- <activity -->
         <!-- android:name=".UserProfile" -->
         <!-- android:label="@string/title_dashboard" -->
         <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".Chats" />
-        <activity android:name=".GetStarted">
+        <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Chats" />
+        <activity android:name=".GetStarted">
+
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />

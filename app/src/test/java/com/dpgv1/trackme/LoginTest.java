@@ -1,7 +1,5 @@
 package com.dpgv1.trackme;
 
-import com.dpgv1.trackme.BLL.LoginBLL;
-
 import org.junit.Test;
 
 public class LoginTest {

@@ -6,6 +6,7 @@ public class User {
     private String lastName;
     private String address;
     private String username;
+    private String password;
 
     public String getFirstName() {
         return firstName;
@@ -55,7 +56,7 @@ public class User {
         this.password = password;
     }
 
-    private String password;
+
 
 
 }

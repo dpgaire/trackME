@@ -1,5 +1,6 @@
 package com.dpgv1.trackme.ui.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dpgv1.trackme.AddFriendActivity;
 import com.dpgv1.trackme.R;
 import com.dpgv1.trackme.adapter.AddFriendAdapter;
 import com.dpgv1.trackme.api.AddFriendAPI;
@@ -39,6 +41,7 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
 
         recyclerView = view.findViewById(R.id.friendlistrecyclerview);
         AddFriendAPI addFriendAPI = Url.getInstance().create(AddFriendAPI.class);

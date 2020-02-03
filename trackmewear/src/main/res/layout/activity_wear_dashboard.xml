@@ -4,15 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CC212121"
     android:orientation="vertical"
-    tools:context=".Sensors.GyroscopeSensor">
+    android:background="#000000"
+    android:src="@drawable/dashwearos"
+    tools:context=".WearDashboard">
 
-    <ImageView
-        android:id="@+id/viewProfile"
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@drawable/profileview"
-        android:layout_marginTop="200dp"/>
+        android:layout_height="wrap_content"
+        android:text="This is Dashboard"
+        android:gravity="center"
+        android:textStyle="bold"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dashwearos"/>
 
 </LinearLayout>

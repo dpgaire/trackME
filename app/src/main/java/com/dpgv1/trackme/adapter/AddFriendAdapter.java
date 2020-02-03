@@ -1,6 +1,7 @@
 package com.dpgv1.trackme.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dpgv1.trackme.AddFriendActivity;
 import com.dpgv1.trackme.R;
 import com.dpgv1.trackme.model.AddFriend;
 
@@ -28,7 +30,7 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
     @Override
     public AddFriendViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_add_friend,parent,false);
+                .inflate(R.layout.friendlist,parent,false);
         return new AddFriendViewHolder(view);
     }
 
@@ -38,6 +40,13 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
         holder.Fname.setText(aFriend.getFirstName());
         holder.Lname.setText(aFriend.getLastName());
         holder.pNumber.setText(aFriend.getPhoneNumber());
+        holder.invitefrn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AddFriendActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -48,13 +57,14 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
 
     public class AddFriendViewHolder extends RecyclerView.ViewHolder {
 
-        TextView Fname,Lname,pNumber;
+        TextView Fname,Lname,pNumber,invitefrn;
 
         public AddFriendViewHolder(@NonNull View itemView) {
             super(itemView);
             Fname=itemView.findViewById(R.id.etFnameaddFriend);
             Lname=itemView.findViewById(R.id.etLastnaddFriend);
             pNumber=itemView.findViewById(R.id.etPhonenaddFriend);
+            invitefrn=itemView.findViewById(R.id.invitefrn);
         }
 
     }
