@@ -1,8 +1,12 @@
 package com.dpgv1.trackme;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +18,7 @@ import android.widget.Toast;
 import com.dpgv1.trackme.ServerResponse.LoginSignUpResponse;
 import com.dpgv1.trackme.StrickMode.StrickMode;
 import com.dpgv1.trackme.api.UserAPI;
+import com.dpgv1.trackme.model.CreateChannel;
 import com.dpgv1.trackme.model.UserLogin;
 import com.dpgv1.trackme.url.Url;
 
@@ -26,11 +31,16 @@ public class MainActivity extends AppCompatActivity {
 private TextView etRegister;
 private EditText Username,password;
 private Button btnLogin;
+    private NotificationManagerCompat notificationManagerCompat;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        notificationManagerCompat = NotificationManagerCompat.from(this);
+        CreateChannel channel = new CreateChannel(this);
+        channel.createChannel();
         binding();
         validation();
         etRegister.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +55,7 @@ private Button btnLogin;
             @Override
             public void onClick(View v) {
                 login();
+
             }
         });
     }
@@ -104,6 +115,18 @@ private Button btnLogin;
         });
 
 
+    }
+    int id=1;
+    private void DisplayNotification(){
+//        Notification notification = new NotificationCompat.Builder(this, CreateChannel.CHANNEL_1)
+//                .setSmallIcon(R.drawable.ic_sms_black_24dp)
+//                .setContentTitle("First Message")
+//                .setContentText("First Message body")
+//                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+//                .build();
+
+//        notificationManagerCompat.notify(id, notification);
+//        id++;
     }
 
 }
