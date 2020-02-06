@@ -19,7 +19,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".url.RunActivity"></activity>
+        <activity android:name=".FriendActivity"></activity>
+        <activity android:name=".url.RunActivity" />
         <activity android:name=".Notification" />
         <activity android:name=".Sensors.GyroscopeSensor" />
         <activity
@@ -39,7 +40,7 @@
         <!-- android:name=".UserProfile" -->
         <!-- android:label="@string/title_dashboard" -->
         <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
-        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".SplashActivity" />
         <activity android:name=".Chats" />
         <activity android:name=".GetStarted" />
         <activity android:name=".RegisterActivity" />

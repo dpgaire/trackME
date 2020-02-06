@@ -34,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
         backToLogin = findViewById(R.id.etBacktoLogin);
         firstName = findViewById(R.id.etfirstname);
         lastName = findViewById(R.id.etlastname);
@@ -132,6 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
             });
 
         }
+
 
 
     }

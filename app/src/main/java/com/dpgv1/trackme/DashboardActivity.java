@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.dpgv1.trackme.adapter.AddFriendAdapter;
 import com.dpgv1.trackme.url.RunActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -37,7 +38,7 @@ public class DashboardActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navigation_dashboard1:
-                        Intent intent1 = new Intent(DashboardActivity.this,AddFriendActivity.class);
+                        Intent intent1 = new Intent(DashboardActivity.this, FriendActivity.class);
                         startActivity(intent1);
                         finish();
                         break;
