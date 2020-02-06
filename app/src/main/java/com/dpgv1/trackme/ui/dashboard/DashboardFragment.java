@@ -33,7 +33,7 @@ import retrofit2.Response;
 
 public class DashboardFragment extends Fragment {
 
-
+    AddFriendAdapter.AddFriendListenner addFriendListenner;
     RecyclerView recyclerView;
     List<AddFriend> addFriendList = new ArrayList<>();
 
@@ -54,7 +54,7 @@ public class DashboardFragment extends Fragment {
                     return;
                 }
                 addFriendList = response.body();
-                AddFriendAdapter addFriendAdapter=new AddFriendAdapter(getActivity(),addFriendList);
+                AddFriendAdapter addFriendAdapter=new AddFriendAdapter(getActivity(),addFriendList,addFriendListenner);
                 recyclerView.setAdapter(addFriendAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             }

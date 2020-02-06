@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,10 +25,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FriendActivity extends AppCompatActivity {
+public class FriendActivity extends AppCompatActivity implements AddFriendAdapter.AddFriendListenner {
 TextView FirstName,LastName,PhoneNumber;
 RecyclerView recyclerView;
 AddFriendAdapter addFriendAdapter;
+AddFriendAdapter.AddFriendListenner addFriendListenner;
 List<AddFriend> addFriendList=new ArrayList<>();
 
     @Override
@@ -50,7 +52,8 @@ List<AddFriend> addFriendList=new ArrayList<>();
                     return;
                 }
                 addFriendList=response.body();
-                addFriendAdapter=new AddFriendAdapter(getApplicationContext(),addFriendList);
+                Object addFriendListenener;
+                addFriendAdapter=new AddFriendAdapter(getApplicationContext(),addFriendList,addFriendListenner);
                 recyclerView.setAdapter(addFriendAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             }
@@ -67,6 +70,12 @@ List<AddFriend> addFriendList=new ArrayList<>();
 //                Intent intent =new Intent(FriendActivity.this,Chats.class);
 //            }
 //        });
+    }
+
+    @Override
+    public void OnAddFreindClick(int position) {
+        Intent intent=new Intent(FriendActivity.this,Chats.class);
+        startActivity(intent);
     }
 //    private void binding(){
 //    FirstName=findViewById(R.id.etFnameaddFriend);
