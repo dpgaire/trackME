@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FriendActivity extends AppCompatActivity implements AddFriendAdapter.AddFriendListenner {
+    Context context;
 TextView FirstName,LastName,PhoneNumber;
 RecyclerView recyclerView;
 AddFriendAdapter addFriendAdapter;
@@ -40,6 +42,7 @@ List<AddFriend> addFriendList=new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerViewlistfried);
         LastName=findViewById(R.id.etLastnaddFriend);
         PhoneNumber=findViewById(R.id.etPhonenaddFriend);
+        context = this;
 
         AddFriendAPI addFriendAPI= Url.getInstance().create(AddFriendAPI.class);
         Call<List<AddFriend>> addfriendCall=addFriendAPI.getFriend();
@@ -53,7 +56,7 @@ List<AddFriend> addFriendList=new ArrayList<>();
                 }
                 addFriendList=response.body();
                 Object addFriendListenener;
-                addFriendAdapter=new AddFriendAdapter(getApplicationContext(),addFriendList,addFriendListenner);
+                addFriendAdapter=new AddFriendAdapter(context,addFriendList,addFriendListenner);
                 recyclerView.setAdapter(addFriendAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             }

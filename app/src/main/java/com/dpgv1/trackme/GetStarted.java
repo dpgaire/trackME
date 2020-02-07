@@ -9,6 +9,8 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -20,7 +22,7 @@ Button getStarted;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_started);
-        getStarted=findViewById(R.id.btngetStarted);
+               getStarted=findViewById(R.id.btngetStarted);
         wifiConectedDisconnected();
         getStarted.setOnClickListener(new View.OnClickListener() {
             @Override

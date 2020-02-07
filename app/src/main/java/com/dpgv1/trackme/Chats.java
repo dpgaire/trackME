@@ -1,18 +1,26 @@
 package com.dpgv1.trackme;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dpgv1.trackme.ServerResponse.LoginSignUpResponse;
+import com.dpgv1.trackme.adapter.AddFriendAdapter;
+import com.dpgv1.trackme.adapter.MessageAdapter;
 import com.dpgv1.trackme.api.MessageAPI;
+import com.dpgv1.trackme.model.AddFriend;
 import com.dpgv1.trackme.model.Message;
 import com.dpgv1.trackme.url.Url;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,7 +28,8 @@ import retrofit2.Response;
 
 public class Chats extends AppCompatActivity {
 EditText textMessage;
-ImageView SendButton;
+ImageButton SendButton;
+    List<Message> messagelist=new ArrayList<>();
 RecyclerView messageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +60,10 @@ RecyclerView messageView;
                     return;
                 }
                 Toast.makeText(Chats.this, "Message sent", Toast.LENGTH_LONG).show();
+
+                MessageAdapter messageAdapter =new MessageAdapter(getApplicationContext(),messagelist);
+                messageView.setAdapter(messageAdapter);
+                messageView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             }
 
             @Override

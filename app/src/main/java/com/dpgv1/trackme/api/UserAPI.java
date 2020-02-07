@@ -18,9 +18,9 @@ public interface UserAPI {
     Call<LoginSignUpResponse> registerUser(@Body User user);
 
 
-
+    @FormUrlEncoded
     @POST("user/login")
-    Call<LoginSignUpResponse> loginUser(@Body UserLogin userLogin);
+    Call<LoginSignUpResponse> loginUser(@Field("username") String username, @Field("password")String password );
 
 ////    @Multipart
 ////    @POST("upload")
