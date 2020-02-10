@@ -20,6 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 
 public class DashboardActivity extends AppCompatActivity {
     BottomNavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

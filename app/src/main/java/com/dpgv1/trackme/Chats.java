@@ -1,10 +1,13 @@
 package com.dpgv1.trackme;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -17,6 +20,7 @@ import com.dpgv1.trackme.adapter.MessageAdapter;
 import com.dpgv1.trackme.api.MessageAPI;
 import com.dpgv1.trackme.model.AddFriend;
 import com.dpgv1.trackme.model.Message;
+import com.dpgv1.trackme.url.RunActivity;
 import com.dpgv1.trackme.url.Url;
 
 import java.util.ArrayList;
@@ -29,6 +33,7 @@ import retrofit2.Response;
 public class Chats extends AppCompatActivity {
 EditText textMessage;
 ImageButton SendButton;
+Toolbar toolbar;
     List<Message> messagelist=new ArrayList<>();
 RecyclerView messageView;
     @Override
@@ -37,6 +42,7 @@ RecyclerView messageView;
         setContentView(R.layout.activity_chats);
         textMessage=findViewById(R.id.editTextSendMesage);
         messageView=findViewById(R.id.recMessageView);
+        toolbar=findViewById(R.id.toolbarm);
         SendButton=findViewById(R.id.sendMessageButton);
         SendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,8 +50,24 @@ RecyclerView messageView;
                 sendMessage();
             }
         });
+       toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+           @Override
+           public boolean onMenuItemClick(MenuItem item) {
+               switch (item.getItemId()) {
+                   case R.id.navigation_notifications1:
+                       Intent intent = new Intent(Chats.this, Userprofile.class);
+                       startActivity(intent);
+                       finish();
+                       break;
+               }
+               return true;
+           }
+       });
+
+
 
     }
+
     private void sendMessage(){
         String btnSend;
         btnSend=textMessage.getText().toString();
@@ -73,4 +95,8 @@ RecyclerView messageView;
         });
 
     }
+    private void viewProfile(){
+
+    }
+
 }

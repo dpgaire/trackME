@@ -30,7 +30,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DashboardActivity"
-            android:label="@string/title_activity_dashboard"></activity>
+            android:label="@string/title_activity_dashboard">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".AddFriendActivity" /> <!-- <activity -->
         <!-- android:name=".UserProfile" -->
         <!-- android:label="@string/title_dashboard" -->
@@ -38,11 +44,7 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Chats" />
         <activity

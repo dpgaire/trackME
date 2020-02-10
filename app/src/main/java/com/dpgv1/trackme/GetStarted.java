@@ -18,6 +18,7 @@ public class GetStarted extends AppCompatActivity  {
 
 
 Button getStarted;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
