@@ -3,6 +3,8 @@ package com.dpgv1.trackme;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.dpgv1.trackme.adapter.AddFriendAdapter;
 import com.dpgv1.trackme.url.RunActivity;
@@ -18,6 +20,7 @@ import androidx.navigation.ui.NavigationUI;
 
 public class DashboardActivity extends AppCompatActivity {
     BottomNavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +30,9 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void setUpNavigation() {
         navigationView = findViewById(R.id.nav_view1);
-        navigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.navigation_notifications1:
                         Intent intent = new Intent(DashboardActivity.this, RunActivity.class);
@@ -48,11 +51,10 @@ public class DashboardActivity extends AppCompatActivity {
                         startActivity(intent2);
                         finish();
                         break;
-                }
-
-
+                }return true;
             }
         });
+
     }
 
 

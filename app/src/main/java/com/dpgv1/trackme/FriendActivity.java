@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,10 +26,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FriendActivity extends AppCompatActivity {
+public class FriendActivity extends AppCompatActivity implements AddFriendAdapter.AddFriendListenner {
+    Context context;
 TextView FirstName,LastName,PhoneNumber;
 RecyclerView recyclerView;
 AddFriendAdapter addFriendAdapter;
+AddFriendAdapter.AddFriendListenner addFriendListenner;
 List<AddFriend> addFriendList=new ArrayList<>();
 
     @Override
@@ -38,6 +42,7 @@ List<AddFriend> addFriendList=new ArrayList<>();
         recyclerView=findViewById(R.id.recyclerViewlistfried);
         LastName=findViewById(R.id.etLastnaddFriend);
         PhoneNumber=findViewById(R.id.etPhonenaddFriend);
+        context = this;
 
         AddFriendAPI addFriendAPI= Url.getInstance().create(AddFriendAPI.class);
         Call<List<AddFriend>> addfriendCall=addFriendAPI.getFriend();
@@ -50,7 +55,8 @@ List<AddFriend> addFriendList=new ArrayList<>();
                     return;
                 }
                 addFriendList=response.body();
-                addFriendAdapter=new AddFriendAdapter(getApplicationContext(),addFriendList);
+                Object addFriendListenener;
+                addFriendAdapter=new AddFriendAdapter(context,addFriendList,addFriendListenner);
                 recyclerView.setAdapter(addFriendAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             }
@@ -67,6 +73,12 @@ List<AddFriend> addFriendList=new ArrayList<>();
 //                Intent intent =new Intent(FriendActivity.this,Chats.class);
 //            }
 //        });
+    }
+
+    @Override
+    public void OnAddFreindClick(int position) {
+        Intent intent=new Intent(FriendActivity.this,Chats.class);
+        startActivity(intent);
     }
 //    private void binding(){
 //    FirstName=findViewById(R.id.etFnameaddFriend);
