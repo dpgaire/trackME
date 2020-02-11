@@ -47,7 +47,7 @@ RecyclerView messageView;
         SendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                sendMessage();
+                sendMessage();
             }
         });
        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -68,33 +68,33 @@ RecyclerView messageView;
 
     }
 
-//    private void sendMessage(){
-//        String btnSend;
-//        btnSend=textMessage.getText().toString();
-//        Message msg=new Message( btnSend);
-//        MessageAPI messageAPI= Url.getInstance().create(MessageAPI.class);
-//        Call<LoginSignUpResponse> messageCall = messageAPI.sendMessage(msg);
-//        messageCall.enqueue(new Callback<LoginSignUpResponse>() {
-//            @Override
-//            public void onResponse(Call<LoginSignUpResponse> call, Response<LoginSignUpResponse> response) {
-//                if (!response.isSuccessful()) {
-//                    Toast.makeText(Chats.this, "Code " + response.code(), Toast.LENGTH_LONG).show();
-//                    return;
-//                }
-//                Toast.makeText(Chats.this, "Message sent", Toast.LENGTH_LONG).show();
-//
-//                MessageAdapter messageAdapter =new MessageAdapter(getApplicationContext(),messagelist);
-//                messageView.setAdapter(messageAdapter);
-//                messageView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-//            }
-//
-//            @Override
-//            public void onFailure(Call<LoginSignUpResponse> call, Throwable t) {
-//                Toast.makeText(Chats.this, "Message failed", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//    }
+    private void sendMessage(){
+        String btnSend;
+        btnSend=textMessage.getText().toString();
+        Message msg=new Message( btnSend);
+        MessageAPI messageAPI= Url.getInstance().create(MessageAPI.class);
+        Call<LoginSignUpResponse> messageCall = messageAPI.sendMessage(Url.token,msg);
+        messageCall.enqueue(new Callback<LoginSignUpResponse>() {
+            @Override
+            public void onResponse(Call<LoginSignUpResponse> call, Response<LoginSignUpResponse> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(Chats.this, "Code " + response.code(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Toast.makeText(Chats.this, "Message sent", Toast.LENGTH_LONG).show();
+
+                MessageAdapter messageAdapter =new MessageAdapter(getApplicationContext(),messagelist);
+                messageView.setAdapter(messageAdapter);
+                messageView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            }
+
+            @Override
+            public void onFailure(Call<LoginSignUpResponse> call, Throwable t) {
+                Toast.makeText(Chats.this, "Message failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
     private void viewProfile(){
 //    Userprofile userprofile=new Userprofile()
     }
