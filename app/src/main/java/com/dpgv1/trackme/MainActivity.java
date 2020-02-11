@@ -9,6 +9,8 @@ import android.app.Notification;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -38,12 +40,16 @@ private TextView etRegister;
 private EditText Username,etPassword;
 private Button btnLogin;
     private NotificationManagerCompat notificationManagerCompat;
-
+    Vibrator vibrator;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        vibrator= (Vibrator) getSystemService( VIBRATOR_SERVICE );
+
+
 
         notificationManagerCompat = NotificationManagerCompat.from(this);
         CreateChannel channel = new CreateChannel(this);
@@ -63,7 +69,7 @@ private Button btnLogin;
             @Override
             public void onClick(View v) {
                 login();
-                DisplayNotification();
+
 
             }
         });
@@ -97,10 +103,12 @@ private Button btnLogin;
         if(loginBll.checkUser(username,password)){
             Intent intent=new Intent(MainActivity.this,DashboardActivity.class);
             startActivity(intent);
+            DisplayNotification();
             Toast.makeText(this, "Sucess", Toast.LENGTH_SHORT).show();
 
         }else {
-            Toast.makeText(this, "Fucking error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter valid information", Toast.LENGTH_SHORT).show();
+            VibratorSensor();
         }
     }
 
@@ -113,6 +121,13 @@ private Button btnLogin;
                 .setCategory( NotificationCompat.CATEGORY_MESSAGE )
                 .build();
         notificationManagerCompat.notify( 1,notification );
+    }
+    private void VibratorSensor(){
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate( VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            vibrator.vibrate(200);
+        }
     }
 
 }
