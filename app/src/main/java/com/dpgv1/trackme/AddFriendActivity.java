@@ -112,7 +112,7 @@ public class AddFriendActivity extends AppCompatActivity {
 
                 .setSmallIcon( R.drawable.ic_message_black_24dp )
                 .setContentTitle( "Friend Added" )
-                .setContentText( "You add new Friend" )
+                .setContentText( "You added new Friend" )
                 .setCategory( NotificationCompat.CATEGORY_MESSAGE )
                 .build();
         notificationManagerCompat.notify( 1,notification );
