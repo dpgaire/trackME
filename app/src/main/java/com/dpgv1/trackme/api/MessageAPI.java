@@ -20,5 +20,5 @@ public interface MessageAPI {
     );
 
     @GET("message")
-    Call<List<Message>> getMessage();
+    Call<List<Message>> getMessage(@Header ("Authorization") String token);
 }

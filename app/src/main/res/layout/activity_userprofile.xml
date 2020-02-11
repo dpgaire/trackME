@@ -11,7 +11,7 @@
         android:id="@+id/imageProfile"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:src="@drawable/loginnow"
+        android:src="@drawable/ba"
         android:layout_marginTop="10dp"/>
     <TextView
         android:id="@+id/firstNameu"

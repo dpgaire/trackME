@@ -31,8 +31,7 @@
             android:label="@string/title_activity_example"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".DashboardActivity"
-            android:label="@string/title_activity_dashboard">
+            android:name=".DashboardActivity">
 
         </activity>
         <activity android:name=".AddFriendActivity" /> <!-- <activity -->
