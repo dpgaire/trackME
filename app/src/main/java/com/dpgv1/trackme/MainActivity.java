@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ import com.dpgv1.trackme.model.CreateChannel;
 import com.dpgv1.trackme.model.UserLogin;
 import com.dpgv1.trackme.url.Url;
 
+import java.nio.channels.Channel;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,9 +44,11 @@ private Button btnLogin;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         notificationManagerCompat = NotificationManagerCompat.from(this);
         CreateChannel channel = new CreateChannel(this);
         channel.createChannel();
+
         binding();
         validation();
         etRegister.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +63,7 @@ private Button btnLogin;
             @Override
             public void onClick(View v) {
                 login();
+                DisplayNotification();
 
             }
         });
@@ -97,17 +103,16 @@ private Button btnLogin;
             Toast.makeText(this, "Fucking error", Toast.LENGTH_SHORT).show();
         }
     }
-    int id=1;
+
     private void DisplayNotification(){
-//        Notification notification = new NotificationCompat.Builder(this, CreateChannel.CHANNEL_1)
-//                .setSmallIcon(R.drawable.ic_sms_black_24dp)
-//                .setContentTitle("First Message")
-//                .setContentText("First Message body")
-//                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
-//                .build();
-//
-//        notificationManagerCompat.notify(id, notification);
-//        id++;
+        Notification notification =new NotificationCompat.Builder(this, CreateChannel.CHANNEL_1)
+
+                .setSmallIcon( R.drawable.ic_message_black_24dp )
+                .setContentTitle( "Login successfull" )
+                .setContentText( "user loggedIn success" )
+                .setCategory( NotificationCompat.CATEGORY_MESSAGE )
+                .build();
+        notificationManagerCompat.notify( 1,notification );
     }
 
 }
