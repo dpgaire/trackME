@@ -1,8 +1,13 @@
 package com.dpgv1.trackme;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +19,7 @@ import com.dpgv1.trackme.ServerResponse.LoginSignUpResponse;
 import com.dpgv1.trackme.api.AddFriendAPI;
 import com.dpgv1.trackme.api.UserAPI;
 import com.dpgv1.trackme.model.AddFriend;
+import com.dpgv1.trackme.model.CreateChannel;
 import com.dpgv1.trackme.url.Url;
 
 import retrofit2.Call;
@@ -21,19 +27,24 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AddFriendActivity extends AppCompatActivity {
-
+    private NotificationManagerCompat notificationManagerCompat;
     EditText FirstName,LastName,PhoneNumber;
     Button btnAddFriend;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend);
+        notificationManagerCompat = NotificationManagerCompat.from(this);
+        CreateChannel channel = new CreateChannel(this);
+        channel.createChannel();
         binding();
         validation();
         btnAddFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addfriend();
+                DisplayNotification();
             }
         });
     }
@@ -81,6 +92,9 @@ public class AddFriendActivity extends AppCompatActivity {
                     return;
                 }
                 Toast.makeText(AddFriendActivity.this, "Friend Sucessfully added", Toast.LENGTH_LONG).show();
+                Intent intent=new Intent( AddFriendActivity.this,FriendActivity.class );
+                startActivity( intent );
+                finish();
 
             }
 
@@ -92,5 +106,15 @@ public class AddFriendActivity extends AppCompatActivity {
 
 
 
+    }
+    private void DisplayNotification(){
+        Notification notification =new NotificationCompat.Builder(this, CreateChannel.CHANNEL_1)
+
+                .setSmallIcon( R.drawable.ic_message_black_24dp )
+                .setContentTitle( "Friend Added" )
+                .setContentText( "You add new Friend" )
+                .setCategory( NotificationCompat.CATEGORY_MESSAGE )
+                .build();
+        notificationManagerCompat.notify( 1,notification );
     }
 }
