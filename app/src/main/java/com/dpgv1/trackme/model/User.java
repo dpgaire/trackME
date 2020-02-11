@@ -6,6 +6,20 @@ public class User {
     private String lastName;
     private String address;
     private String username;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public User(String image) {
+        this.image = image;
+    }
+
     private String password;
 
     public String getFirstName() {

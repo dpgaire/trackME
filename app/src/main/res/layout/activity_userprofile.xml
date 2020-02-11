@@ -18,12 +18,16 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_marginLeft="20dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
         android:background="@drawable/style_edittext"
         android:layout_marginRight="20dp"
         android:layout_height="50dp"/>
     <TextView
         android:id="@+id/LastNameU"
         android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:textSize="18dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/style_edittext"
         android:layout_marginRight="20dp"
@@ -32,6 +36,8 @@
         android:id="@+id/addressU"
         android:layout_width="match_parent"
         android:layout_marginLeft="20dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
         android:background="@drawable/style_edittext"
         android:layout_marginRight="20dp"
         android:layout_height="50dp"/>
@@ -39,16 +45,12 @@
         android:id="@+id/UsernameU"
         android:layout_width="match_parent"
         android:layout_marginLeft="20dp"
+        android:textAlignment="center"
+        android:textSize="18dp"
         android:background="@drawable/style_edittext"
         android:layout_marginRight="20dp"
         android:layout_height="50dp"/>
-    <TextView
-        android:id="@+id/phoneNumberU"
-        android:layout_width="match_parent"
-        android:background="@drawable/style_edittext"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_height="50dp"/>
+
     <Button
         android:id="@+id/btnUpdateProfile"
         android:layout_width="match_parent"
