@@ -21,27 +21,23 @@ TextView sendMessage,ReceiveMessage;
     Context context;
     List<Message> messages;
 
-    public MessageAdapter(Context context ,  List<Message> messages1) {
+    public MessageAdapter(Context context, List<Message> messages) {
         this.context = context;
-        this.messages=messages1;
+        this.messages = messages;
     }
 
     @NonNull
     @Override
-
-
     public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.messagelist,parent,false);
-        return new MessageAdapter.MessageViewHolder(view);
+        View view = LayoutInflater.from( parent.getContext() ).inflate( R.layout.messagelist,parent,false );
+        return new MessageViewHolder( view );
     }
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
-
-        Message message=messages.get(position);
+        final Message message=messages.get(position);
         holder.sendMessage.setText(message.getMessage());
-        holder.receiveMessage.setText(message.getMessage());
+        //holder.receiveMessage.setText(message.getMessage());
     }
 
     @Override
@@ -49,19 +45,15 @@ TextView sendMessage,ReceiveMessage;
         return messages.size();
     }
 
-    public class MessageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+    public class MessageViewHolder extends RecyclerView.ViewHolder {
         TextView sendMessage,receiveMessage;
         public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
             sendMessage=itemView.findViewById(R.id.tvSendmessage);
-            receiveMessage=itemView.findViewById(R.id.tvReceivemessage);
+            //receiveMessage=itemView.findViewById(R.id.tvReceivemessage);
         }
 
-
-        @Override
-        public void onClick(View v) {
-
-        }
     }
 }
 

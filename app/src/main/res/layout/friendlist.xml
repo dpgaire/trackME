@@ -3,39 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:layout_marginRight="250dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/invite"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Invite friends"
-            android:layout_marginTop="50dp"
-            android:textSize="27dp"
-            android:textStyle="bold"
-            android:id="@+id/invitefrn"
-            android:layout_marginLeft="200dp"/>
-
-
-    </RelativeLayout>
-
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="130dp">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         tools:ignore="MissingConstraints">
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/huimage"
             android:layout_width="140dp"
@@ -43,7 +20,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:src="@mipmap/ic_launcher_round"
+            android:background="@drawable/ic_person_black_24dp"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -61,7 +38,7 @@
             android:id="@+id/etLastnaddFriend"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="200dp"
             android:text="Lastname"
             android:textAlignment="center"
             android:textSize="20dp"
@@ -78,6 +55,9 @@
             tools:ignore="MissingConstraints" />
 
     </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
 
 
     <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->

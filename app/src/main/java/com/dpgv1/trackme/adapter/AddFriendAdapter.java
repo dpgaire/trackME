@@ -44,13 +44,13 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
         holder.Fname.setText(aFriend.getFirstName());
         holder.Lname.setText(aFriend.getLastName());
         holder.pNumber.setText(aFriend.getPhoneNumber());
-        holder.invitefrn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, AddFriendActivity.class);
-                context.startActivity(intent);
-            }
-        });
+//        holder.invitefrn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(context, AddFriendActivity.class);
+//                context.startActivity(intent);
+//            }
+//        });
         holder.Fname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
