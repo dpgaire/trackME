@@ -12,20 +12,21 @@
         android:layout_height="wrap_content">
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
+            android:id="@+id/addmoreimage"
             android:layout_height="100dp"
             android:layout_marginRight="250dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/invite"/>
+            android:src="@drawable/add"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Invite friends"
-            android:layout_marginTop="50dp"
+            android:text="Add more"
+            android:layout_marginTop="40dp"
             android:textSize="27dp"
             android:textStyle="bold"
-            android:id="@+id/invitefrn"
-            android:layout_marginLeft="200dp"/>
+            android:id="@+id/tvaddfriend"
+            android:layout_marginLeft="150dp"/>
 
 
     </androidx.cardview.widget.CardView>

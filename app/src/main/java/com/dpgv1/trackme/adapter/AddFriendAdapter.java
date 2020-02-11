@@ -75,7 +75,6 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
             Fname=itemView.findViewById(R.id.etFnameaddFriend);
             Lname=itemView.findViewById(R.id.etLastnaddFriend);
             pNumber=itemView.findViewById(R.id.etPhonenaddFriend);
-            invitefrn=itemView.findViewById(R.id.invitefrn);
             itemView.setOnClickListener(this);
         }
 
