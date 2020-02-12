@@ -16,14 +16,13 @@ public class LoginBll {
 
     public boolean checkUser(String username, String password) {
 
-        // Login login= new Login(username,password);
-        UserAPI userapi= Url.getInstance().create(UserAPI.class);
-        Call<LoginSignUpResponse> usersCall = userapi.loginUser(username,password);
+        UserAPI userapi = Url.getInstance().create( UserAPI.class );
+        Call<LoginSignUpResponse> usersCall = userapi.loginUser( username, password );
 
         try {
             Response<LoginSignUpResponse> loginResponse = usersCall.execute();
             if (loginResponse.isSuccessful() &&
-                    loginResponse.body().getStatus().equals("Login success!")) {
+                    loginResponse.body().getStatus().equals( "Login success!" )) {
 
                 Url.token += loginResponse.body().getToken();
                 // Url.Cookie = imageResponseResponse.headers().get("Set-Cookie");

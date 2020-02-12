@@ -15,10 +15,10 @@ import retrofit2.http.POST;
 public interface MessageAPI {
     @POST("message")
     Call<LoginSignUpResponse> sendMessage(
-            @Header ("Authorization")String token,
+            @Header("Authorization") String token,
             @Body Message message
     );
 
     @GET("message")
-    Call<List<Message>> getMessage(@Header ("Authorization") String token);
+    Call<List<Message>> getMessage(@Header("Authorization") String token);
 }

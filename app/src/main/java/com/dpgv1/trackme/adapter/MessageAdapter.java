@@ -16,8 +16,8 @@ import com.dpgv1.trackme.model.Message;
 
 import java.util.List;
 
-public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder>{
-TextView sendMessage,ReceiveMessage;
+public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
+    TextView sendMessage, ReceiveMessage;
     Context context;
     List<Message> messages;
 
@@ -29,15 +29,14 @@ TextView sendMessage,ReceiveMessage;
     @NonNull
     @Override
     public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from( parent.getContext() ).inflate( R.layout.messagelist,parent,false );
+        View view = LayoutInflater.from( parent.getContext() ).inflate( R.layout.messagelist, parent, false );
         return new MessageViewHolder( view );
     }
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
-        final Message message=messages.get(position);
-        holder.sendMessage.setText(message.getMessage());
-        //holder.receiveMessage.setText(message.getMessage());
+        final Message message = messages.get( position );
+        holder.sendMessage.setText( message.getMessage() );
     }
 
     @Override
@@ -47,10 +46,11 @@ TextView sendMessage,ReceiveMessage;
 
 
     public class MessageViewHolder extends RecyclerView.ViewHolder {
-        TextView sendMessage,receiveMessage;
+        TextView sendMessage, receiveMessage;
+
         public MessageViewHolder(@NonNull View itemView) {
-            super(itemView);
-            sendMessage=itemView.findViewById(R.id.tvSendmessage);
+            super( itemView );
+            sendMessage = itemView.findViewById( R.id.tvSendmessage );
             //receiveMessage=itemView.findViewById(R.id.tvReceivemessage);
         }
 

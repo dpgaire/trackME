@@ -25,39 +25,34 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
     Context context;
     List<AddFriend> addFriendListList;
     private AddFriendListenner mAddfriendListener;
-    public AddFriendAdapter(Context context, List<AddFriend> addFriendListList,AddFriendListenner addFriendListenner) {
+
+    public AddFriendAdapter(Context context, List<AddFriend> addFriendListList, AddFriendListenner addFriendListenner) {
         this.context = context;
         this.addFriendListList = addFriendListList;
-        this.mAddfriendListener=addFriendListenner;
+        this.mAddfriendListener = addFriendListenner;
     }
+
     @NonNull
     @Override
     public AddFriendViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.friendlist,parent,false);
-        return new AddFriendViewHolder(view,mAddfriendListener);
+        View view = LayoutInflater.from( parent.getContext() )
+                .inflate( R.layout.friendlist, parent, false );
+        return new AddFriendViewHolder( view, mAddfriendListener );
     }
 
     @Override
     public void onBindViewHolder(@NonNull AddFriendViewHolder holder, int position) {
-        AddFriend aFriend=addFriendListList.get(position);
-        holder.Fname.setText(aFriend.getFirstName());
-        holder.Lname.setText(aFriend.getLastName());
-        holder.pNumber.setText(aFriend.getPhoneNumber());
-//        holder.invitefrn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, AddFriendActivity.class);
-//                context.startActivity(intent);
-//            }
-//        });
-        holder.Fname.setOnClickListener(new View.OnClickListener() {
+        AddFriend aFriend = addFriendListList.get( position );
+        holder.Fname.setText( aFriend.getFirstName() );
+        holder.Lname.setText( aFriend.getLastName() );
+        holder.pNumber.setText( aFriend.getPhoneNumber() );
+        holder.Fname.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, Chats.class);
-                context.startActivity(intent);
+                Intent intent = new Intent( context, Chats.class );
+                context.startActivity( intent );
             }
-        });
+        } );
     }
 
     @Override
@@ -68,24 +63,26 @@ public class AddFriendAdapter extends RecyclerView.Adapter<AddFriendAdapter.AddF
 
     public class AddFriendViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView Fname,Lname,pNumber,invitefrn;
+        TextView Fname, Lname, pNumber, invitefrn;
         AddFriendListenner addFriendListenner;
-        public AddFriendViewHolder(@NonNull View itemView,AddFriendListenner addFriendListenner) {
-            super(itemView);
-            Fname=itemView.findViewById(R.id.etFnameaddFriend);
-            Lname=itemView.findViewById(R.id.etLastnaddFriend);
-            pNumber=itemView.findViewById(R.id.etPhonenaddFriend);
-            itemView.setOnClickListener(this);
+
+        public AddFriendViewHolder(@NonNull View itemView, AddFriendListenner addFriendListenner) {
+            super( itemView );
+            Fname = itemView.findViewById( R.id.etFnameaddFriend );
+            Lname = itemView.findViewById( R.id.etLastnaddFriend );
+            pNumber = itemView.findViewById( R.id.etPhonenaddFriend );
+            itemView.setOnClickListener( this );
         }
 
         @Override
         public void onClick(View v) {
-        addFriendListenner.OnAddFreindClick(getAdapterPosition());
+            addFriendListenner.OnAddFreindClick( getAdapterPosition() );
         }
 
 
     }
-    public interface AddFriendListenner{
+
+    public interface AddFriendListenner {
         void OnAddFreindClick(int position);
     }
 }
