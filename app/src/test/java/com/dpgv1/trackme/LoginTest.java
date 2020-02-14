@@ -1,15 +1,20 @@
 package com.dpgv1.trackme;
 
+import com.dpgv1.trackme.BLL.LoginBll;
+
 import org.junit.Test;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class LoginTest {
     @Test
     public void testLogin(){
-        LoginBLL loginBLL=new LoginBLL("dpgaire","123");
-        boolean result=loginBLL.chekUser();
-        assertEquals()
+        LoginBll loginBLL=new LoginBll();
+        boolean result=loginBLL.checkUser("dpgaire123","dpgaire");
+        assertEquals(true, result);
 
 
     }
+
 
 }

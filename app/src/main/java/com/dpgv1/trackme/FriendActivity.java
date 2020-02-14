@@ -70,7 +70,7 @@ public class FriendActivity extends AppCompatActivity implements AddFriendAdapte
         } );
 
         AddFriendAPI addFriendAPI = Url.getInstance().create( AddFriendAPI.class );
-        Call<List<AddFriend>> addfriendCall = addFriendAPI.getFriend();
+        Call<List<AddFriend>> addfriendCall = addFriendAPI.getFriend(Url.token);
 
         addfriendCall.enqueue( new Callback<List<AddFriend>>() {
             @Override

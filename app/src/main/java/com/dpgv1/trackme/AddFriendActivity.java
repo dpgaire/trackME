@@ -84,7 +84,7 @@ public class AddFriendActivity extends AppCompatActivity {
         AddFriend userfriend = new AddFriend( fname, lname, phonenumber );
 
         AddFriendAPI addFriendAPI = Url.getInstance().create( AddFriendAPI.class );
-        Call<LoginSignUpResponse> addFcall = addFriendAPI.addFriend( userfriend );
+        Call<LoginSignUpResponse> addFcall = addFriendAPI.addFriend( Url.token,userfriend);
 
 
         addFcall.enqueue( new Callback<LoginSignUpResponse>() {

@@ -14,8 +14,8 @@ import retrofit2.http.POST;
 
 public interface AddFriendAPI {
     @POST("addfriend")
-    Call<LoginSignUpResponse> addFriend(@Body AddFriend addFriend);
+    Call<LoginSignUpResponse> addFriend(@Header( "Authorization" ) String token, @Body AddFriend addFriend);
 
     @GET("addfriend")
-    Call<List<AddFriend>> getFriend();
+    Call<List<AddFriend>> getFriend(@Header( "Authorization" ) String token);
 }
