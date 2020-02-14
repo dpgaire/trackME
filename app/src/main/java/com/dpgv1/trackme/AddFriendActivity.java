@@ -28,71 +28,74 @@ import retrofit2.Response;
 
 public class AddFriendActivity extends AppCompatActivity {
     private NotificationManagerCompat notificationManagerCompat;
-    EditText FirstName,LastName,PhoneNumber;
+    EditText FirstName, LastName, PhoneNumber;
     Button btnAddFriend;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_friend);
-        notificationManagerCompat = NotificationManagerCompat.from(this);
-        CreateChannel channel = new CreateChannel(this);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_add_friend );
+        notificationManagerCompat = NotificationManagerCompat.from( this );
+        CreateChannel channel = new CreateChannel( this );
         channel.createChannel();
         binding();
         validation();
-        btnAddFriend.setOnClickListener(new View.OnClickListener() {
+        btnAddFriend.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addfriend();
                 DisplayNotification();
             }
-        });
+        } );
     }
 
 
-    private void binding(){
-        FirstName=findViewById(R.id.etfirstnamea);
-        LastName=findViewById(R.id.etlastnamea);
-        PhoneNumber=findViewById(R.id.etphonenumbera);
-        btnAddFriend=findViewById(R.id.btnAddFriend);
+    private void binding() {
+        FirstName = findViewById( R.id.etfirstnamea );
+        LastName = findViewById( R.id.etlastnamea );
+        PhoneNumber = findViewById( R.id.etphonenumbera );
+        btnAddFriend = findViewById( R.id.btnAddFriend );
     }
-    private void validation(){
-        if (TextUtils.isEmpty(FirstName.getText().toString())) {
-            FirstName.setError("Please enter firstname");
+
+    private void validation() {
+        if (TextUtils.isEmpty( FirstName.getText().toString() )) {
+            FirstName.setError( "Please enter firstname" );
             FirstName.requestFocus();
 
         }
-        if (TextUtils.isEmpty(LastName.getText().toString())) {
-            LastName.setError("Please enter lastname");
+        if (TextUtils.isEmpty( LastName.getText().toString() )) {
+            LastName.setError( "Please enter lastname" );
             LastName.requestFocus();
 
         }
-        if (TextUtils.isEmpty(PhoneNumber.getText().toString())) {
-            PhoneNumber.setError("Please enter Phone Number");
+        if (TextUtils.isEmpty( PhoneNumber.getText().toString() )) {
+            PhoneNumber.setError( "Please enter Phone Number" );
             PhoneNumber.requestFocus();
 
         }
     }
-    private void addfriend(){
+
+    private void addfriend() {
         String fname = FirstName.getText().toString();
         String lname = LastName.getText().toString();
-        String phonenumber=PhoneNumber.getText().toString();
+        String phonenumber = PhoneNumber.getText().toString();
 
-        AddFriend userfriend = new AddFriend(fname,lname,phonenumber);
+        AddFriend userfriend = new AddFriend( fname, lname, phonenumber );
 
-        AddFriendAPI addFriendAPI = Url.getInstance().create(AddFriendAPI.class);
-        Call<LoginSignUpResponse> addFcall = addFriendAPI.addFriend(userfriend);
+        AddFriendAPI addFriendAPI = Url.getInstance().create( AddFriendAPI.class );
+        Call<LoginSignUpResponse> addFcall = addFriendAPI.addFriend( Url.token,userfriend);
 
 
-        addFcall.enqueue(new Callback<LoginSignUpResponse>() {
+        addFcall.enqueue( new Callback<LoginSignUpResponse>() {
             @Override
             public void onResponse(Call<LoginSignUpResponse> call, Response<LoginSignUpResponse> response) {
                 if (!response.isSuccessful()) {
-                    Toast.makeText(AddFriendActivity.this, "Code " + response.code(), Toast.LENGTH_LONG).show();
+                    Toast.makeText( AddFriendActivity.this, "Code " + response.code(), Toast.LENGTH_LONG ).show();
                     return;
                 }
-                Toast.makeText(AddFriendActivity.this, "Friend Sucessfully added", Toast.LENGTH_LONG).show();
-                Intent intent=new Intent( AddFriendActivity.this,FriendActivity.class );
+                Toast.makeText( AddFriendActivity.this, "Friend Sucessfully added", Toast.LENGTH_LONG ).show();
+                Intent intent = new Intent( AddFriendActivity.this, FriendActivity.class );
                 startActivity( intent );
                 finish();
 
@@ -100,21 +103,21 @@ public class AddFriendActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginSignUpResponse> call, Throwable t) {
-                Toast.makeText(AddFriendActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText( AddFriendActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_LONG ).show();
             }
-        });
-
+        } );
 
 
     }
-    private void DisplayNotification(){
-        Notification notification =new NotificationCompat.Builder(this, CreateChannel.CHANNEL_1)
+
+    private void DisplayNotification() {
+        Notification notification = new NotificationCompat.Builder( this, CreateChannel.CHANNEL_1 )
 
                 .setSmallIcon( R.drawable.ic_message_black_24dp )
                 .setContentTitle( "Friend Added" )
                 .setContentText( "You added new Friend" )
                 .setCategory( NotificationCompat.CATEGORY_MESSAGE )
                 .build();
-        notificationManagerCompat.notify( 1,notification );
+        notificationManagerCompat.notify( 1, notification );
     }
 }

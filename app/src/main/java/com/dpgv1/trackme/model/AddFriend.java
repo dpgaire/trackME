@@ -5,7 +5,7 @@ import java.util.List;
 
 public class AddFriend {
 
-    static List<AddFriend> addFriendList=new ArrayList<>();
+    static List<AddFriend> addFriendList = new ArrayList<>();
     private String firstName;
     private String lastName;
     private String phoneNumber;

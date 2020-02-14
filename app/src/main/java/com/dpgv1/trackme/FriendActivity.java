@@ -35,75 +35,69 @@ import retrofit2.Response;
 
 public class FriendActivity extends AppCompatActivity implements AddFriendAdapter.AddFriendListenner {
     Context context;
-TextView FirstName,LastName,PhoneNumber,tvAddFriendMore;
-CircleImageView circleImageView;
-RecyclerView recyclerView;
-AddFriendAdapter addFriendAdapter;
-AddFriendAdapter.AddFriendListenner addFriendListenner;
-List<AddFriend> addFriendList=new ArrayList<>();
+    TextView FirstName, LastName, PhoneNumber, tvAddFriendMore;
+    CircleImageView circleImageView;
+    RecyclerView recyclerView;
+    AddFriendAdapter addFriendAdapter;
+    AddFriendAdapter.AddFriendListenner addFriendListenner;
+    List<AddFriend> addFriendList = new ArrayList<>();
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_friend);
-        FirstName=findViewById(R.id.etFnameaddFriend);
-        recyclerView=findViewById(R.id.recyclerViewlistfried);
-        LastName=findViewById(R.id.etLastnaddFriend);
-        PhoneNumber=findViewById(R.id.etPhonenaddFriend);
-        tvAddFriendMore=findViewById( R.id.tvaddfriend );
-        circleImageView=findViewById( R.id.addmoreimage );
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_friend );
+        FirstName = findViewById( R.id.etFnameaddFriend );
+        recyclerView = findViewById( R.id.recyclerViewlistfried );
+        LastName = findViewById( R.id.etLastnaddFriend );
+        PhoneNumber = findViewById( R.id.etPhonenaddFriend );
+        tvAddFriendMore = findViewById( R.id.tvaddfriend );
+        circleImageView = findViewById( R.id.addmoreimage );
         context = this;
         tvAddFriendMore.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent( FriendActivity.this,AddFriendActivity.class );
+                Intent intent = new Intent( FriendActivity.this, AddFriendActivity.class );
                 startActivity( intent );
             }
         } );
         circleImageView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent( FriendActivity.this,AddFriendActivity.class );
+                Intent intent = new Intent( FriendActivity.this, AddFriendActivity.class );
                 startActivity( intent );
             }
         } );
 
-        AddFriendAPI addFriendAPI= Url.getInstance().create(AddFriendAPI.class);
-        Call<List<AddFriend>> addfriendCall=addFriendAPI.getFriend();
+        AddFriendAPI addFriendAPI = Url.getInstance().create( AddFriendAPI.class );
+        Call<List<AddFriend>> addfriendCall = addFriendAPI.getFriend(Url.token);
 
-        addfriendCall.enqueue(new Callback<List<AddFriend>>() {
+        addfriendCall.enqueue( new Callback<List<AddFriend>>() {
             @Override
             public void onResponse(Call<List<AddFriend>> call, Response<List<AddFriend>> response) {
                 if (!response.isSuccessful()) {
-                    Toast.makeText(FriendActivity.this, "Code " + response.code(), Toast.LENGTH_LONG).show();
+                    Toast.makeText( FriendActivity.this, "Code " + response.code(), Toast.LENGTH_LONG ).show();
                     return;
                 }
-                addFriendList=response.body();
+                addFriendList = response.body();
                 Object addFriendListenener;
-                addFriendAdapter=new AddFriendAdapter(context,addFriendList,addFriendListenner);
-                recyclerView.setAdapter(addFriendAdapter);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                addFriendAdapter = new AddFriendAdapter( context, addFriendList, addFriendListenner );
+                recyclerView.setAdapter( addFriendAdapter );
+                recyclerView.setLayoutManager( new LinearLayoutManager( getApplicationContext() ) );
             }
 
             @Override
             public void onFailure(Call<List<AddFriend>> call, Throwable t) {
-                Toast.makeText(FriendActivity.this, "Failed to view friend list", Toast.LENGTH_SHORT).show();
+                Toast.makeText( FriendActivity.this, "Failed to view friend list", Toast.LENGTH_SHORT ).show();
             }
-        });
+        } );
 
-//        FirstName.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent =new Intent(FriendActivity.this,Chats.class);
-//            }
-//        });
     }
 
     @Override
     public void OnAddFreindClick(int position) {
-        Intent intent=new Intent(FriendActivity.this,Chats.class);
-        startActivity(intent);
+        Intent intent = new Intent( FriendActivity.this, Chats.class );
+        startActivity( intent );
     }
 //    private void binding(){
 //    FirstName=findViewById(R.id.etFnameaddFriend);

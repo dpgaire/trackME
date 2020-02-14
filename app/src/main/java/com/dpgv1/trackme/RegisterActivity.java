@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dpgv1.trackme.Sensors.GyroscopeSensor;
+
 import com.dpgv1.trackme.ServerResponse.LoginSignUpResponse;
 import com.dpgv1.trackme.api.UserAPI;
 import com.dpgv1.trackme.model.User;

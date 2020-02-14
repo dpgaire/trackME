@@ -45,7 +45,7 @@ public class DashboardFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.friendlistrecyclerview);
         AddFriendAPI addFriendAPI = Url.getInstance().create(AddFriendAPI.class);
-        Call<List<AddFriend>> listCall = addFriendAPI.getFriend();
+        Call<List<AddFriend>> listCall = addFriendAPI.getFriend(Url.token);
         listCall.enqueue(new Callback<List<AddFriend>>() {
             @Override
             public void onResponse(Call<List<AddFriend>> call, Response<List<AddFriend>> response) {

@@ -23,19 +23,12 @@ public interface UserAPI {
 
     @FormUrlEncoded
     @POST("user/login")
-    Call<LoginSignUpResponse> loginUser(@Field("username") String username, @Field("password")String password );
+    Call<LoginSignUpResponse> loginUser(@Field("username") String username, @Field("password") String password);
 
 
-
-
-
-////    @Multipart
-////    @POST("upload")
-////    Call<ImageResponse> uploadImage(@Part MultipartBody.Part img);
-////
     @GET("user/me")
     Call<User> getUserDetails(@Header("Authorization") String token);
 
     @PUT("user/me")
-    Call<User>getAlluserDetails(String token);
+    Call<User> getAlluserDetails(String token);
 }

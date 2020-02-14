@@ -1,10 +1,8 @@
-package com.dpgv1.trackme.BLL;
+package com.example.trackmewear.Bll;
 
-import com.dpgv1.trackme.ServerResponse.LoginSignUpResponse;
-import com.dpgv1.trackme.api.UserAPI;
-import com.dpgv1.trackme.model.Login;
-import com.dpgv1.trackme.model.UserLogin;
-import com.dpgv1.trackme.url.Url;
+import com.example.trackmewear.API.UserAPI;
+import com.example.trackmewear.Url.Url;
+import com.example.trackmewear.serverResponse.LoginResposne;
 
 import java.io.IOException;
 
@@ -16,13 +14,14 @@ public class LoginBll {
 
     public boolean checkUser(String username, String password) {
 
-        UserAPI userapi = Url.getInstance().create( UserAPI.class );
-        Call<LoginSignUpResponse> usersCall = userapi.loginUser( username, password );
+        // Login login= new Login(username,password);
+        UserAPI userapi= Url.getInstance().create(UserAPI.class);
+        Call<LoginResposne> usersCall = userapi.loginUser(username,password);
 
         try {
-            Response<LoginSignUpResponse> loginResponse = usersCall.execute();
+            Response<LoginResposne> loginResponse = usersCall.execute();
             if (loginResponse.isSuccessful() &&
-                    loginResponse.body().getStatus().equals( "Login success!" )) {
+                    loginResponse.body().getStatus().equals("Login success!")) {
 
                 Url.token += loginResponse.body().getToken();
                 // Url.Cookie = imageResponseResponse.headers().get("Set-Cookie");
