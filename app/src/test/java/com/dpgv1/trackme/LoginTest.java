@@ -13,7 +13,6 @@ public class LoginTest {
         boolean result=loginBLL.checkUser("dpgaire123","dpgaire");
         assertEquals(true, result);
 
-
     }
 
 
