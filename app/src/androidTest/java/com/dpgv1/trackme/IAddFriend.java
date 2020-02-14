@@ -1,5 +1,6 @@
 package com.dpgv1.trackme;
 
+
 import androidx.test.espresso.Espresso;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
@@ -16,35 +17,30 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class IRegisterTest {
+public class IAddFriend {
     @Rule
-    public ActivityTestRule<RegisterActivity> testRule=new ActivityTestRule<>(RegisterActivity.class);
+    public ActivityTestRule<AddFriendActivity> testRule=new ActivityTestRule<>(AddFriendActivity.class);
     @Test
-    public void RegisterUser()
+    public void AddFriend()
     {
-        onView(withId(R.id.etfirstname))
-                .perform(typeText("Brendom"));
+        onView(withId(R.id.etfirstnamea))
+                .perform(typeText("Dpvai"));
         Espresso.closeSoftKeyboard();
 
-        onView(withId(R.id.etlastname))
+        onView(withId(R.id.etlastnamea))
                 .perform(typeText("McCllum"));
         Espresso.closeSoftKeyboard();
 
-        onView(withId(R.id.etaddress))
-                .perform(typeText("Galyang"));
+        onView(withId(R.id.etphonenumbera))
+                .perform(typeText("9845552522"));
         Espresso.closeSoftKeyboard();
 
-        onView(withId(R.id.etusernameReg))
-                .perform(typeText("brendonMcc"));
-        Espresso.closeSoftKeyboard();
 
-        onView(withId(R.id.etPasswordReg))
-                .perform(typeText("password"));
-        Espresso.closeSoftKeyboard();
 
-        onView(withId(R.id.btnRegister)).perform(click());
+        onView(withId(R.id.btnAddFriend)).perform(click());
 
-        onView(withId(R.id.navigation_dashboard));
+        onView(withId(R.layout.activity_friend));
     }
 
 }
+
