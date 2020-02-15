@@ -20,21 +20,17 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".UpdateProfile"></activity>
-        <activity android:name=".Userprofile">
-        </activity>
+        <activity android:name=".MessageListActivity"></activity>
+        <activity android:name=".UpdateProfile" />
+        <activity android:name=".Userprofile"></activity>
         <activity android:name=".FriendActivity" />
         <activity android:name=".url.RunActivity" />
         <activity android:name=".Notification" />
-        <activity android:name=".Sensors.GyroscopeSensor" />
         <activity
             android:name=".url.Example"
             android:label="@string/title_activity_example"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".DashboardActivity">
-
-        </activity>
+        <activity android:name=".DashboardActivity"></activity>
         <activity android:name=".AddFriendActivity" /> <!-- <activity -->
         <!-- android:name=".UserProfile" -->
         <!-- android:label="@string/title_dashboard" -->

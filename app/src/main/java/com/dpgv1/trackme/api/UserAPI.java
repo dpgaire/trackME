@@ -30,5 +30,5 @@ public interface UserAPI {
     Call<User> getUserDetails(@Header("Authorization") String token);
 
     @PUT("user/me")
-    Call<User> getAlluserDetails(String token);
+    Call<LoginSignUpResponse> getAlluserDetails(@Header("Authorization") String token, @Body User user);
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,64 +8,72 @@
     android:layout_height="match_parent"
     tools:context=".UpdateProfile">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Update Profile"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="40dp"
-        android:textColor="#ffffff"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="20dp"/>
-    <EditText
-        android:id="@+id/firstNameupdate"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/style_edittext"
-        android:layout_marginTop="80dp"
-        android:drawableLeft="@drawable/ic_person_black_24dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/lastnameupdate"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/style_edittext"
-        android:layout_marginTop="10dp"
-        android:drawableLeft="@drawable/ic_person_black_24dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"/>
-    <EditText
-        android:id="@+id/addressupdate"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:drawableLeft="@drawable/ic_place_black_24dp"
-        android:layout_marginLeft="40dp"
-        android:background="@drawable/style_edittext"
-        android:layout_marginRight="40dp"/>
-    <EditText
-        android:id="@+id/usernameupdate"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/style_edittext"
-        android:layout_marginTop="10dp"
-        android:drawableLeft="@drawable/ic_email_black_24dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"/>
-    <Button
-        android:id="@+id/btnUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="Update"
-        android:textStyle="bold"
-        android:textColor="#ffffff"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
-        android:background="@drawable/style_button"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Profile"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="40dp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="20dp"/>
+        <EditText
+            android:id="@+id/firstNameupdate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/style_edittext"
+            android:layout_marginTop="80dp"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"/>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/lastnameupdate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/style_edittext"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"/>
+        <EditText
+            android:id="@+id/addressupdate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_place_black_24dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/style_edittext"
+            android:layout_marginRight="40dp"/>
+        <EditText
+            android:id="@+id/usernameupdate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/style_edittext"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_email_black_24dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"/>
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Update"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/style_button"/>
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

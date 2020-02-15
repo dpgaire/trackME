@@ -1,6 +1,5 @@
 package com.dpgv1.trackme;
 
-
 import androidx.test.espresso.Espresso;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
@@ -17,30 +16,16 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class IAddFriend {
+public class IChatTest {
     @Rule
-    public ActivityTestRule<AddFriendActivity> testRule=new ActivityTestRule<>(AddFriendActivity.class);
+    public ActivityTestRule<Chats> testRule=new ActivityTestRule<>(Chats.class);
     @Test
-    public void AddFriend()
-    {
-        onView(withId(R.id.etfirstnamea))
-                .perform(typeText("Dpvai"));
+    public void SendMessage() {
+        onView( withId( R.id.editTextSendMesage ) )
+                .perform( typeText( "Hello" ) );
         Espresso.closeSoftKeyboard();
 
-        onView(withId(R.id.etlastnamea))
-                .perform(typeText("McCllum"));
-        Espresso.closeSoftKeyboard();
-
-        onView(withId(R.id.etphonenumbera))
-                .perform(typeText("9845552 522"));
-        Espresso.closeSoftKeyboard();
-
-
-
-        onView(withId(R.id.btnAddFriend)).perform(click());
-
-        onView(withId(R.layout.activity_friend));
+        onView( withId( R.id.sendMessageButton ) ).perform( click() );
+        onView( withId( R.layout.activity_chats ) );
     }
-
 }
-

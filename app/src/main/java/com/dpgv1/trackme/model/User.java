@@ -8,6 +8,8 @@ public class User {
     private String username;
     private String image;
 
+
+
     public String getImage() {
         return image;
     }
@@ -69,6 +71,8 @@ public class User {
         this.username = username;
         this.password = password;
     }
+
+
 
 
 }

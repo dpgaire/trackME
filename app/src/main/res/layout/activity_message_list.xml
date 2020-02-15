@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MessageListActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            tools:ignore="MissingConstraints">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/huimage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_person_black_24dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/etFnameaddFriend"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:text="Dp"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/etLastnaddFriend"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="200dp"
+                android:text="Gaire"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/etPhonenaddFriend"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="80dp"
+                android:text="Hi"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                tools:ignore="MissingConstraints" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.core.widget.NestedScrollView>

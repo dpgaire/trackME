@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class FriendActivity extends AppCompatActivity implements AddFriendAdapte
     TextView FirstName, LastName, PhoneNumber, tvAddFriendMore;
     CircleImageView circleImageView;
     RecyclerView recyclerView;
+    ImageButton deleteButton;
     AddFriendAdapter addFriendAdapter;
     AddFriendAdapter.AddFriendListenner addFriendListenner;
     List<AddFriend> addFriendList = new ArrayList<>();
@@ -53,6 +55,7 @@ public class FriendActivity extends AppCompatActivity implements AddFriendAdapte
         PhoneNumber = findViewById( R.id.etPhonenaddFriend );
         tvAddFriendMore = findViewById( R.id.tvaddfriend );
         circleImageView = findViewById( R.id.addmoreimage );
+        deleteButton=findViewById( R.id.deletebutton );
         context = this;
         tvAddFriendMore.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -68,7 +71,12 @@ public class FriendActivity extends AppCompatActivity implements AddFriendAdapte
                 startActivity( intent );
             }
         } );
+        deleteButton.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        } );
         AddFriendAPI addFriendAPI = Url.getInstance().create( AddFriendAPI.class );
         Call<List<AddFriend>> addfriendCall = addFriendAPI.getFriend(Url.token);
 
@@ -99,14 +107,7 @@ public class FriendActivity extends AppCompatActivity implements AddFriendAdapte
         Intent intent = new Intent( FriendActivity.this, Chats.class );
         startActivity( intent );
     }
-//    private void binding(){
-//    FirstName=findViewById(R.id.etFnameaddFriend);
-//    recyclerView=findViewById(R.id.recyclerViewlistfried);
-//    LastName=findViewById(R.id.etLastnaddFriend);
-//    PhoneNumber=findViewById(R.id.etPhonenaddFriend);
-//
-//
-//    }
+    private void DeleteFriend(){
 
-
+    }
 }
