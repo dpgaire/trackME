@@ -32,7 +32,7 @@ public class IAddFriend {
         Espresso.closeSoftKeyboard();
 
         onView(withId(R.id.etphonenumbera))
-                .perform(typeText("9845552522"));
+                .perform(typeText("9845552 522"));
         Espresso.closeSoftKeyboard();
 
 

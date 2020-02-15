@@ -118,15 +118,45 @@ public class RegisterActivity extends AppCompatActivity {
 
             User users = new User(fname, lname,Address,userName, Password);
 
-            RegisterBll registerBll=new RegisterBll();
-            StrickMode.StrictMode();
-            if(registerBll.RegisterUser( users )){
-                Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
-                startActivity(intent);
-            }else{
-                Toast.makeText( this, "Failed to register", Toast.LENGTH_SHORT ).show();
-            }
+//            RegisterBll registerBll=new RegisterBll();
+//            StrickMode.StrictMode();
+//            if(registerBll.RegisterBll( users )){
+//                Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
+//                Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
+//                startActivity(intent);
+//            }else{
+//                Toast.makeText( this, "Failed to register", Toast.LENGTH_SHORT ).show();
+//            }
+//
+//
+
+        RegisterBll registerBll = new RegisterBll();
+        StrickMode.StrictMode();
+        if (registerBll.RegisterBll( users )){
+            Toast.makeText( this, "SUcess", Toast.LENGTH_SHORT ).show();
+        }else{
+            Toast.makeText( this, "fail", Toast.LENGTH_SHORT ).show();
+        }
+//        UserAPI usersAPI = Url.getInstance().create(UserAPI.class);
+//        Call<LoginSignUpResponse> signUpCall = usersAPI.registerUser(users);
+//
+//        signUpCall.enqueue(new Callback<LoginSignUpResponse>() {
+//            @Override
+//            public void onResponse(Call<LoginSignUpResponse> call, Response<LoginSignUpResponse> response) {
+//                if (!response.isSuccessful()) {
+//                    Toast.makeText(RegisterActivity.this, "Code " + response.code(), Toast.LENGTH_LONG).show();
+//                    return;
+//                }
+//                Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
+//                Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
+//                startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<LoginSignUpResponse> call, Throwable t) {
+//                Toast.makeText(RegisterActivity.this, "Error" + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         }
 
