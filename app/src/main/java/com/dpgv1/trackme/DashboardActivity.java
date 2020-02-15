@@ -48,7 +48,7 @@ public class DashboardActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navigation_home1:
-                        Intent intent2 = new Intent( DashboardActivity.this, RegisterActivity.class );
+                        Intent intent2 = new Intent( DashboardActivity.this, MessageListActivity.class );
                         startActivity( intent2 );
                         finish();
                         break;
