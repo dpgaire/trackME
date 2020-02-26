@@ -2,6 +2,7 @@ package com.dpgv1.trackme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -76,8 +77,10 @@ public class UpdateProfile extends AppCompatActivity {
         String lname = LastName.getText().toString();
         final String address = etAddress.getText().toString();
         String userName = Username.getText().toString();
+        User user = new User(  );
+        String password = user.getPassword();
 
-        User users = new User(fname, lname,address,userName,"");
+        User users = new User(fname, lname,address,userName,password);
         UserAPI userAPI= Url.getInstance().create(UserAPI.class);
         Call<LoginSignUpResponse> userUpdateCall=userAPI.getAlluserDetails(Url.token,users);
         StrickMode.StrictMode();
@@ -89,6 +92,8 @@ public class UpdateProfile extends AppCompatActivity {
                     return;
                 }else {
                     Toast.makeText( UpdateProfile.this, "Success", Toast.LENGTH_SHORT ).show();
+                    Intent intent=new Intent( UpdateProfile.this,UpdateProfile.class );
+                    startActivity( intent );
 
                 }
             }

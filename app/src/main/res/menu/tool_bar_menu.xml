@@ -3,6 +3,9 @@
     <item
         android:id="@+id/menuAbout"
         android:title="View profile" />
+    <item
+        android:id="@+id/location"
+        android:title="Track" />
 
 
 

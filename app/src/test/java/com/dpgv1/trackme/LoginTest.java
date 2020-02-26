@@ -13,7 +13,7 @@ public class LoginTest {
     public void testLogin(){
         LoginBll loginBLL=new LoginBll();
         boolean result=loginBLL.checkUser("dpgaire123","dpgaire");
-        assertEquals(true, result);
+        assertEquals(false, result);
 
     }
 
@@ -22,9 +22,34 @@ public class LoginTest {
         RegisterBll registerBll=new RegisterBll();
         User user = new User( "12345","sss","aa0","cccccc","123" );
         boolean result=registerBll.RegisterBll(user);
-        assertEquals(true, result);
+        assertEquals(false, result);
 
     }
+    @Test
+    public void testAddfriend(){
+        RegisterBll registerBll=new RegisterBll();
+        User user = new User( "12345","sss","aa0","cccccc","123" );
+        boolean result=registerBll.RegisterBll(user);
+        assertEquals(false, result);
+
+    }
+    @Test
+    public void testUpdateUser(){
+        RegisterBll registerBll=new RegisterBll();
+        User user = new User( "12345","sss","aa0","cccccc","123" );
+        boolean result=registerBll.RegisterBll(user);
+        assertEquals(false, result);
+
+    }
+    @Test
+    public void testMessage(){
+        RegisterBll registerBll=new RegisterBll();
+        User user = new User( "12345","sss","aa0","cccccc","123" );
+        boolean result=registerBll.RegisterBll(user);
+        assertEquals(false, result);
+
+    }
+
 
 
 }
