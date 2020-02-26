@@ -9,6 +9,15 @@ public class AddFriend {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    private String _id;
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
 
     public AddFriend(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;

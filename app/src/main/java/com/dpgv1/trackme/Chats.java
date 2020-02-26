@@ -70,6 +70,11 @@ public class Chats extends AppCompatActivity {
                         startActivity( intent );
                         finish();
                         break;
+                    case R.id.location:
+                        Intent intent1 = new Intent( Chats.this,MapsActivity.class );
+                        startActivity( intent1 );
+                        finish();
+                        break;
                 }
                 return true;
             }
