@@ -16,9 +16,6 @@ Android:
 API Link:
 <https://github.com/softwarica-github/t2-backend-api-dpgaire.git>
 
-Video-Link
-<https://youtu.be/A499r6lhyx0>
-
 Running the code by clonning this link in your own system and open it and run it.
 
 
